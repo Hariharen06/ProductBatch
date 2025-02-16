@@ -106,6 +106,7 @@ public class next {
 //        tcs(4500,'m');
 //        switchExample();
 //        electricityBill();
+         System.out.println("hello");
 
     }
 }
