@@ -96,6 +96,21 @@ public class next {
             System.out.println((25+75+120+((unit-250)*1.5)*0.2)+(25+75+120+((unit-250)*1.5)*0.2));
 
     }
+    static void patt(){
+        int n = 5;
+        int f = 0;
+        for(int i=1; i<=n; i++,System.out.println()) {
+            f = i;
+            for(int j=n; j>=1; j--) {
+                if (j==n)
+                    System.out.print(i);
+                else
+                    System.out.print(f);
+                f+=j;
+
+            }
+        }
+     }
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        int num = sc.nextInt();
@@ -106,7 +121,9 @@ public class next {
 //        tcs(4500,'m');
 //        switchExample();
 //        electricityBill();
-         System.out.println("hello");
+  //       System.out.println("hello");
+        patt();
+
 
     }
 }
