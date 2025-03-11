@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class next {
     static void leapYear(){
@@ -101,29 +103,162 @@ public class next {
         int f = 0;
         for(int i=1; i<=n; i++,System.out.println()) {
             f = i;
-            for(int j=n; j>=1; j--) {
-                if (j==n)
-                    System.out.print(i);
-                else
-                    System.out.print(f);
+            for(int j=n; j>=i; j--) {
+                if (j==n) System.out.printf("%d ",i);
+                else System.out.printf("%d ",f);
                 f+=j;
-
             }
         }
      }
+    static void arrSum(int size){
+        int sum=0;
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<size;i++){
+            sum+=arr[i];
+        }
+        System.out.println(sum);
+    }
+    static void oddEve(int size){
+        int odd=0,even=0;
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<size;i++){
+            if(arr[i]%2==0){
+                even++;
+            }
+            else
+                odd++;
+        }
+        System.out.println("ODD:"+odd);
+        System.out.println("EVEN:"+even);
+    }
+    static void leftSum(int size){
+        Scanner sc = new Scanner(System.in);
+        int prev =0;
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+
+        for(int i=0;i<size;i++){
+            int temp = arr[i];
+            arr[i] = prev;
+            prev+=temp;
+        }
+        System.out.println(Arrays.toString(arr));
+
+    }
+    static void allSum(int size){
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+            sum += arr[i];
+        }
+        for(int i=0;i<size;i++){
+            arr[i] = sum - arr[i];
+            System.out.print(arr[i] +" ");
+        }
+
+    }
+    static void allSum2(int size){
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+            sum += arr[i];
+        }
+        for(int i=0;i<size;i++){
+            arr[i] = sum - arr[i];
+            sum = arr[i];
+            System.out.print(arr[i] +" ");
+        }
+
+    }
+    static void majorityElement(){
+        Scanner si = new Scanner(System.in);
+        int k = si.nextInt();
+        int l = k / 2;
+        int size = 0;
+        if (k % 2 == 0) {
+            size = k / 2;
+        } else {
+            size = (k / 2) + 1;
+        }
+        int arr[] = new int[k];
+        for (int i = 0; i < k; i++) {
+            arr[i] = si.nextInt();
+        }
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == arr[i + l]) {
+                System.out.println("Majority Element" +" "+ arr[i]);
+                return;
+            }
+        }
+        System.out.println("There is no Majority Element");
+    }
+    static void count01(int size){
+        int arr[] = new int[size];
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<size;i++)
+            arr[i] = sc.nextInt();
+        int count0 = 0;
+        int count1 = 0;
+        for(int i=0; i<size;i++){
+            if(arr[i]==0)
+                count0++;
+            else
+                count1++;
+        }
+        System.out.println("cz:"+count0);
+        System.out.println("co:"+count1);
+    }
+    static void arrMul(int size){
+        int arr[] = new int[size];
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<size;i++)
+            arr[i] = sc.nextInt();
+        int prev = arr[0];
+        for(int i=0;i<size;i++){
+            int temp = arr[i];
+            if(i==0)
+                arr[i] = arr[i] * arr[i + 1];
+            else if(i==size-1)
+                arr[size-1]=arr[i]*arr[i-1];
+            else
+                arr[i]=prev*arr[i+1];
+            prev = temp;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        int num = sc.nextInt();
 //        if(num % 100 ==0)
-//            System.out.println("multiple of 100");
+//        System.out.println("multiple of 100");
 //        leapYear();
 //        addAndSum();
 //        tcs(4500,'m');
 //        switchExample();
 //        electricityBill();
-  //       System.out.println("hello");
-        patt();
-
-
+//        System.out.println("hello");
+//        arrSum(5);
+//        oddEve(5);
+//        leftSum(5);
+//        allSum2(10);
+//        majorityElement();
+//        count01(5);
+          arrMul(5);
     }
 }
