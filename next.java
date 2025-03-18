@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.HashMap;
-
+import java.util.*;
 public class next {
     static void leapYear(){
         int year = 2400;
@@ -240,25 +237,118 @@ public class next {
         }
         System.out.println(Arrays.toString(arr));
     }
+    static void arrLar(int size){
+        int arr[] = new int[size];
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<size;i++)
+            arr[i] = sc.nextInt();
+        int max = arr[0];
+        for(int ele:arr){
+            if(ele>max)
+                max=ele;
+        }
+        System.out.println("Max element is "+max);
+    }
+    static void arrSma(int size){
+        int arr[] = new int[size];
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<size;i++)
+            arr[i] = sc.nextInt();
+        int min = arr[0];
+        for(int ele:arr){
+            if(ele<min)
+                min=ele;
+        }
+        System.out.println("Min element is "+min);
+    }
+    static void arrIns(int size){
+        int arr[] = new int[size+1];
+        Scanner sc = new Scanner(System.in);
+        int pos = sc.nextInt();
+        int ele = sc.nextInt();
+        for(int i=0;i<size;i++)
+            arr[i] = sc.nextInt();
+        for(int i=size;i>=(pos-1);i--){
+            arr[i]=arr[i-1];
+            if(i==pos-1) {
+                arr[pos-1] = ele;
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    static void arrUni(int size){
+        int j;
+        int arr[] = new int[size];
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < size; i++)
+            arr[i] = sc.nextInt();
+        for(int i = 0;i<size;i++){
+            for(j = 0;j<size;j++){
+                if(arr[i]==arr[j] && i!=j){
+                    break;
+                }
+            }
+            if(j==size){
+                System.out.println("Unique Element : "+arr[i]);
+            }
+        }
+    }
+    public int[] twoSum ( int[] nums, int target){
+            int arr[] = {5};
+            arr = new int[]{5,6};
+            HashMap<Integer, Integer> hm = new HashMap<>();
+            for (int i = 0; i < nums.length; i++)
+                hm.put(nums[i], i);
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i];
+                if (hm.containsKey(complement) && i != hm.get(complement)) {
+                    arr = new int[]{5};
+                    return arr;
+                }
+            }
+            return new int[]{};
+        }
+    static  void arrdel(int size){
+        int[] arr=new int[size];
+        Scanner sc = new Scanner(System.in);
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        int pos = sc.nextInt();
+        for(int i=pos-1;i<size-1;i++){
+            arr[i]=arr[i+1];
+        }
+        for(int i=0;i<size-1;i++){
+            System.out.print(arr[i]+" ");
+        }
 
+    }
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int num = sc.nextInt();
-//        if(num % 100 ==0)
-//        System.out.println("multiple of 100");
-//        leapYear();
-//        addAndSum();
-//        tcs(4500,'m');
-//        switchExample();
-//        electricityBill();
-//        System.out.println("hello");
-//        arrSum(5);
-//        oddEve(5);
-//        leftSum(5);
-//        allSum2(10);
-//        majorityElement();
-//        count01(5);
-          arrMul(5);
+/*
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if(num % 100 ==0)
+        System.out.println("multiple of 100");
+        leapYear();
+        addAndSum();
+        tcs(4500,'m');
+        switchExample();
+        electricityBill();
+        System.out.println("hello");
+        arrSum(5);
+        oddEve(5);
+        leftSum(5);
+        allSum2(10);
+        majorityElement();
+        count01(5);
+        arrMul(5);
+        arrLar(5);
+        arrIns(5);
+        arrUni(5);
+*/
+//arrdel(5);
+ arrUni(5);
     }
 }
